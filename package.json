@@ -10,7 +10,7 @@
     "build-html": "jade < views/index.jade > build/index.html",
     "build-css": "stylus < style/style.styl > build/style.css",
     "clean": "rm -rf build && mkdir build",
-    "deploy": "bin/deploy.sh"
+    "deploy": "bin/deploy-ghpages.sh"
   },
   "author": "Bence Dányi <madbence@gmail.com>",
   "license": "MIT",
