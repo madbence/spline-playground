@@ -4,5 +4,5 @@ node_js:
 script: npm run-script deploy
 env:
   global:
-    - GH_REF = github.com/madbence/spline-playground.git
-    - secure: EZ2e4U3LJBLyOcBKBmy/UwVRhyMbVFK2mZ3SMMq0WBaPg50nuRezYY44eCG2sknvzPA1M755ikJvW3EHKTY1FNFEXDMOemU2vYK1+HGYGPF8FF4wKZa3B8dbNObp9GAQYtQUWCOF5cDQeEN3vb07lEmlkBDkQMAdaptcu+sI45M=
+    - GH_REF: github.com/madbence/spline-playground.git
+    - secure: ZBBEyRrOprUOUZ3i2L0PYK9zSBmFl3n3InTUU9J0PU6ldpAFkaHXCsS+ZFrReU4ssjqNgRr0XTAAMHf9nVS35VKWdGqm400EaXoi8opVaLiusRymxue/9YfzGH/8L51d94L58UZby/KmWIFBtbLmlkfbI/uzydF2qMuVX+FOvaU=
