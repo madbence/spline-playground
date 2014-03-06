@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+- '0.10'
+script: npm run-script deploy
+env:
+  global:
+    - GH_REF = github.com/madbence/spline-playground.git
+    - secure: EZ2e4U3LJBLyOcBKBmy/UwVRhyMbVFK2mZ3SMMq0WBaPg50nuRezYY44eCG2sknvzPA1M755ikJvW3EHKTY1FNFEXDMOemU2vYK1+HGYGPF8FF4wKZa3B8dbNObp9GAQYtQUWCOF5cDQeEN3vb07lEmlkBDkQMAdaptcu+sI45M=

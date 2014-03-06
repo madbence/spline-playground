@@ -1,0 +1,26 @@
+{
+  "name": "spline-playground",
+  "version": "0.0.0",
+  "description": "Spline playground!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo 'Everything is working just fine, relax! ;-)'",
+    "build": "npm run-script clean && npm run-script build-html && npm run-script build-js && npm run-script build-css",
+    "build-js": "browserify lib/app.js | uglifyjs -mc > build/bundle.js",
+    "build-html": "jade < views/index.jade > build/index.html",
+    "build-css": "stylus style/style.styl > build/style.css",
+    "clean": "rm -rf build && mkdir build",
+    "deploy": "bin/deploy.sh"
+  },
+  "author": "Bence Dányi <madbence@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "stylus": "^0.42.3",
+    "jade": "^1.3.0",
+    "express": "^3.4.8",
+    "browserify-middleware": "^2.3.0",
+    "browserify": "^3.32.0",
+    "jadeify": "^2.1.1",
+    "uglify-js": "^2.4.12"
+  }
+}
