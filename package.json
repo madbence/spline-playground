@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo 'Everything is working just fine, relax! ;-)'",
     "build": "npm run-script clean && npm run-script build-html && npm run-script build-js && npm run-script build-css",
-    "build-js": "browserify lib/app.js | uglifyjs -mc > build/bundle.js",
+    "build-js": "browserify src/app.js | uglifyjs -mc > build/bundle.js",
     "build-html": "jade < views/index.jade > build/index.html",
     "build-css": "stylus < style/style.styl > build/style.css",
     "clean": "rm -rf build && mkdir build",

@@ -54,6 +54,7 @@ function addPoint(e) {
     y: e.offsetY,
     t: Date.now()/1000
   });
+  //cr._accCache.pop();
   cr.recompile();
   px = cr.compiled[0].x;
   py = cr.compiled[0].y;

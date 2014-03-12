@@ -5,7 +5,7 @@ var fs = require('fs');
 
 var app = express();
 
-app.get('/bundle.js', browserify('./lib/app.js', {
+app.get('/bundle.js', browserify('./src/app.js', {
   transform: ['jadeify']
 }));
 
