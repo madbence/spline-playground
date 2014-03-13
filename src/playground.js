@@ -1,6 +1,7 @@
 var Class = require('./class');
 var Dzhugashvili = require('./spline/dzhugashvili');
-var SimpleOutline = require('./renderer/simple-outline');
+//var SimpleOutline = require('./renderer/simple-outline');
+var PerSegmentOutline = require('./renderer/per-segment-outline');
 var mouse = require('./util/mouse');
 
 function devnull(e) {
@@ -28,7 +29,8 @@ var Playground = Class.extend({
     this.spline = new Dzhugashvili(this.points);
 
     this.renderer = [];
-    this.renderer.push(new SimpleOutline(this.ctx));
+    //this.renderer.push(new SimpleOutline(this.ctx));
+    this.renderer.push(new PerSegmentOutline(this.ctx));
 
     this.loop();
   },
