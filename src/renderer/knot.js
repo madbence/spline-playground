@@ -16,12 +16,16 @@ var Knot = Class.extend({
     ctx.fillStyle = this.fillStyle;
     ctx.lineWidth = this.lineWidth;
     for(var i = 0; i < spline.points.length; i++) {
-      ctx.beginPath();
-      ctx.arc(spline.points[i].x, spline.points[i].y, this.radius, 0, Math.PI*2);
-      ctx.fill();
-      ctx.stroke();
+      this.drawKnot(spline, i);
     }
     ctx.restore();
+  },
+  drawKnot: function drawKnot(spline, i) {
+    var ctx = this.ctx;
+    ctx.beginPath();
+    ctx.arc(spline.points[i].x, spline.points[i].y, this.radius, 0, Math.PI*2);
+    ctx.fill();
+    ctx.stroke();
   }
 });
 
