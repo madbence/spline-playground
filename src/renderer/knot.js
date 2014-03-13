@@ -4,9 +4,9 @@ var Knot = Class.extend({
   initialize: function(ctx, opt) {
     opt = opt || {};
     this.ctx = ctx;
-    this.fillStyle = opt.fillStyle = '#666';
-    this.strokeStyle = opt.strokeStyle = '#fff';
-    this.lineWidth = opt.lineWidth = 1;
+    this.fillStyle = opt.fillStyle || '#666';
+    this.strokeStyle = opt.strokeStyle || '#fff';
+    this.lineWidth = opt.lineWidth || 1;
     this.radius = opt.radius || 3;
   },
   draw: function(spline) {
