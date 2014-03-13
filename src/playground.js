@@ -2,6 +2,7 @@ var Class = require('./class');
 var Dzhugashvili = require('./spline/dzhugashvili');
 //var SimpleOutline = require('./renderer/simple-outline');
 var PerSegmentOutline = require('./renderer/per-segment-outline');
+var Knot = require('./renderer/knot');
 var mouse = require('./util/mouse');
 
 function devnull(e) {
@@ -31,6 +32,7 @@ var Playground = Class.extend({
     this.renderer = [];
     //this.renderer.push(new SimpleOutline(this.ctx));
     this.renderer.push(new PerSegmentOutline(this.ctx));
+    this.renderer.push(new Knot(this.ctx));
 
     this.loop();
   },
