@@ -1,5 +1,7 @@
 # spline-playground [![Build Status](https://travis-ci.org/madbence/spline-playground.png?branch=master)](https://travis-ci.org/madbence/spline-playground)
 
+## Try it!
+
 [madbence.github.io/spline-playground](http://madbence.github.io/spline-playground)
 
 ## Usage
