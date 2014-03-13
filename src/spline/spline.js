@@ -85,6 +85,15 @@ var Spline = Class.extend({
       }, this).join('+') + '&\\text{if}&' + t.toFixed(2) + '\\leq t<' + (this.par(i+1)-this.par(0)).toFixed(2);
     }, this).join('\\\\\n') + '\n\\end{matrix}\\right.';
   },
+  getCompiled: function getCompiled(dir, deg) {
+    deg = deg || 0;
+    if(!this.compiled || !this.compiled[deg] || !this.compiled[deg][dir]) {
+      this.compiled = this.compiled || [];
+      this.compiled[deg] = this.compiled[deg] || {};
+      this.compiled[deg][dir] = this.compile(dir, deg);
+    }
+    return this.compiled[deg][dir];
+  },
   draw: function draw(ctx, opt) {
     opt = opt || {};
     opt.derivatives = opt.derivatives || ['#222'];
