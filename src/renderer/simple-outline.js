@@ -1,16 +1,12 @@
-var Class = require('../class');
+var Outline = require('./outline');
 
-var SimpleOutline = Class.extend({
+var SimpleOutline = Outline.extend({
   initialize: function initialize(ctx, opt) {
     opt = opt || {};
-    this.ctx = ctx;
-    this.segments = opt.segments || 1000;
+    this.segments = opt.segments || 200;
   },
-  draw: function draw(spline) {
+  drawSpline: function draw(spline) {
     var ctx = this.ctx;
-    ctx.save();
-    ctx.strokeStyle = '#ccc';
-    ctx.beginPath();
     var last = spline.points.length - 1;
     for(var i = 0; i < this.segments; i++) {
       var t = spline.par(0) + i * (spline.par(last) - spline.par(0)) / (this.segments - 1);
@@ -18,8 +14,6 @@ var SimpleOutline = Class.extend({
       var y = spline.getCompiled('y');
       ctx.lineTo(x(t), y(t));
     }
-    ctx.stroke();
-    ctx.restore();
   }
 });
 
