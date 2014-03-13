@@ -1,8 +1,7 @@
 var Quartic = require('./quartic');
 
 var Dzhugashvili = Quartic.extend({
-  constructor: function() {
-    Quartic.apply(this, arguments);
+  initialize: function() {
     this._accCache = [];
   },
   acc: function(n, dir) {

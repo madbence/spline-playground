@@ -4,8 +4,7 @@ var Spline = require('./spline');
  * The cubic spline is made from 3rd degree polynoms
  */
 var Cubic = Spline.extend({
-  constructor: function() {
-    Spline.apply(this, arguments);
+  initialize: function() {
     this.degree = Cubic.degree;
   },
   /**

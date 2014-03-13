@@ -13,8 +13,8 @@ function derive(deg, n) {
  * @class
  */
 var Spline = Class.extend({
-  initialize: function() {
-    this.points = [];
+  initialize: function(points) {
+    this.points = points;
   },
   /**
    * Get the `dir` component of the position vector of the `n`th knot

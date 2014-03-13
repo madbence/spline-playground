@@ -1,8 +1,7 @@
 var Spline = require('./spline');
 
 var Quartic = Spline.extend({
-  constructor: function() {
-    Spline.apply(this, arguments);
+  initialize: function() {
     this.degree = Quartic.degree;
   },
   /**
