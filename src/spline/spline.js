@@ -1,4 +1,4 @@
-var Class = require('./class');
+var Class = require('../class');
 
 function revrange(s, e) {
   return Array(s-e+1).join(0).split(0).map(function(n, i) { return s-i; });
