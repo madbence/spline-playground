@@ -1,5 +1,6 @@
 var Class = require('./class');
 var Dzhugashvili = require('./spline/dzhugashvili');
+var CatmullRom = require('./spline/catmull-rom');
 //var SimpleOutline = require('./renderer/simple-outline');
 var PerSegmentOutline = require('./renderer/per-segment-outline');
 var Knot = require('./renderer/knot');
@@ -36,14 +37,16 @@ var Playground = Class.extend({
     this.loop = this.loop.bind(this);
 
 
-    this.spline = new Dzhugashvili(this.points);
+    this.splines = [
+      new Dzhugashvili(this.points),
+      new CatmullRom(this.points)
+    ];
 
-    this.renderer = [];
-    //this.renderer.push(new SimpleOutline(this.ctx));
-    this.renderer.push(new PerSegmentOutline(this.ctx));
-    this.renderer.push(new Knot(this.ctx));
-    this.renderer.push(new KnotVel(this.ctx));
-    this.renderer.push(new KnotAcc(this.ctx));
+    this.renderers = [];
+    this.renderers.push(new PerSegmentOutline(this.ctx));
+    this.renderers.push(new Knot(this.ctx));
+    this.renderers.push(new KnotVel(this.ctx));
+    this.renderers.push(new KnotAcc(this.ctx));
 
     this.loop();
   },
@@ -59,14 +62,18 @@ var Playground = Class.extend({
     this.points.push({
       x: x, y: y, t: Date.now()
     });
-    this.spline.recompile();
+    this.splines.forEach(function(spline) {
+      spline.recompile();
+    });
   },
   draw: function draw() {
     if(this.points.length < 2) return;
     this.ctx.clearRect(0, 0, 1000, 1000);
-    for(var i = 0; i < this.renderer.length; i++) {
-      this.renderer[i].draw(this.spline);
-    }
+    this.renderers.forEach(function(renderer) {
+      this.splines.forEach(function(spline) {
+        renderer.draw(spline);
+      }, this);
+    }, this);
   }
 });
 
