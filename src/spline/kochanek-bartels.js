@@ -1,8 +1,7 @@
 var Cubic = require('./cubic');
 
 var KochanekBartels = Cubic.extend({
-  constructor: function(opts) {
-    Cubic.apply(this, arguments);
+  initialize: function(points, opts) {
     this.tension = opts.tension;
     this.bias = opts.bias;
     this.continuity = opts.continuity;
