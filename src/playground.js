@@ -5,6 +5,8 @@ var PerSegmentOutline = require('./renderer/per-segment-outline');
 var Knot = require('./renderer/knot');
 var KnotVel = require('./renderer/knot-vel');
 var KnotAcc = require('./renderer/knot-acc');
+var ObservableArray = require('./util/observable-array');
+var PointDragger = require('./control/drag-point');
 var mouse = require('./util/mouse');
 
 function devnull(e) {
@@ -23,11 +25,16 @@ var Playground = Class.extend({
     var doc = el.ownerDocument;
     doc.addEventListener('contextmenu', devnull);
 
+    this.points = new ObservableArray();
+    var pointDragger = new PointDragger(this.points);
+
     el.addEventListener('click', mouse(0, this.add, this));
+    el.addEventListener('mousedown', mouse(2, pointDragger.start, pointDragger));
+    el.addEventListener('mouseup', mouse(2, pointDragger.end, pointDragger));
+    el.addEventListener('mousemove', mouse(2, pointDragger.move, pointDragger));
 
     this.loop = this.loop.bind(this);
 
-    this.points = [];
 
     this.spline = new Dzhugashvili(this.points);
 
